@@ -7,18 +7,18 @@ namespace udemy_calculator
     {
         static void Main(string[] args)
         {
-            // Ziel: Zwei Ganzzahlen addieren
+            // Ziel: Zwei Gleitkommazahlen addieren
             Console.Write("Erste Zahl eingeben: ");
             string strFirstNumber = Console.ReadLine();
             Console.Write("Zweite Zahl eingeben: ");
             string strSecondNumber = Console.ReadLine();
 
             // Eingabestring in Zahlen umwandeln
-            int intFirstNumber = Convert.ToInt32(strFirstNumber);
-            int intSecondNumber = Convert.ToInt32(strSecondNumber);
+            float floatFirstNumber = Convert.ToSingle(strFirstNumber);
+            float floatSecondNumber = Convert.ToSingle(strSecondNumber);
 
             // Berechnung und Ausgabe
-            int sum = intFirstNumber + intSecondNumber;
+            float sum = floatFirstNumber + floatSecondNumber;
             Console.WriteLine("Das Ergebnis ist: {0}", sum);
             Console.ReadLine();
         }
