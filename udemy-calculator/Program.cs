@@ -14,11 +14,11 @@ namespace udemy_calculator
             string strSecondNumber = Console.ReadLine();
 
             // Eingabestring in Zahlen umwandeln
-            float floatFirstNumber = Convert.ToSingle(strFirstNumber);
-            float floatSecondNumber = Convert.ToSingle(strSecondNumber);
+            double firstNumber = Convert.ToDouble(strFirstNumber);
+            double secondNumber = Convert.ToDouble(strSecondNumber);
 
             // Berechnung und Ausgabe
-            float sum = floatFirstNumber + floatSecondNumber;
+            double sum = firstNumber + secondNumber;
             Console.WriteLine("Das Ergebnis ist: {0:F}", sum);
             Console.ReadLine();
         }
