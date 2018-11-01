@@ -19,7 +19,7 @@ namespace udemy_calculator
 
             // Berechnung und Ausgabe
             float sum = floatFirstNumber + floatSecondNumber;
-            Console.WriteLine("Das Ergebnis ist: {0}", sum);
+            Console.WriteLine("Das Ergebnis ist: {0:F}", sum);
             Console.ReadLine();
         }
     }
