@@ -1,0 +1,6 @@
+TAG:	Iteration_1_finished	
+TYPE:	Internal Developer Release
+STATUS:	Tested by developer, ready to deploy to tester group
+
+FUNCTIONS:
+	Adds two floating-point numbers
