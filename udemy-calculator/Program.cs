@@ -8,21 +8,37 @@ namespace udemy_calculator
         static void Main(string[] args)
         {
             // Ziel: Zwei Gleitkommazahlen addieren
-            string strFirstNumber = GetNumber("Erste Zahl eingeben: ");
-            string strSecondNumber = GetNumber("Zweite Zahl eingeben: ");
+            string strFirstNumber = GetUserInput("Erste Zahl eingeben: ");
+            string strSecondNumber = GetUserInput("Zweite Zahl eingeben: ");
+            string strOperator = GetUserInput("Operator (+, -) eingeben: ");
 
             // Eingabestring in Zahlen umwandeln
             double firstNumberInput = ConvertNumber(strFirstNumber);
             double secondNumberInput = ConvertNumber(strSecondNumber);
 
             // Berechnung und Ausgabe
-            double sum = AddNumbers(firstNumberInput, secondNumberInput);
-            Console.WriteLine("Das Ergebnis ist: {0:F}", sum);
-            WaitEndOfProgram();
+            double result = 0;
+            switch (strOperator)
+            {
+                case "+":
+                    result = AddNumbers(firstNumberInput, secondNumberInput);
+                    Console.WriteLine("Die Summe ist: {0:F}", result);
+                    break;
 
+                case "-":
+                    result = SubtractNumbers(firstNumberInput, secondNumberInput);
+                    Console.WriteLine("Die Differenz ist: {0:F}", result);
+                    break;
+
+                default:
+                    Console.WriteLine("Ungültiger Operator");
+                    break;
+            }
+
+            GetUserInput("Zum Beenden bitte die Enter-Taste drücken");
         }
 
-        static string GetNumber(string inputText)
+        static string GetUserInput(string inputText)
         {
             Console.Write(inputText);
             string strNumber = Console.ReadLine();
@@ -41,10 +57,10 @@ namespace udemy_calculator
             return sum;
         }
 
-        static void WaitEndOfProgram()
+        static double SubtractNumbers(double minuend, double subtrahend)
         {
-            Console.WriteLine("Zum Beenden bitte die Enter-Taste drücken");
-            Console.ReadLine();
+            double difference = minuend - subtrahend;
+            return difference;
         }
     }
 }
