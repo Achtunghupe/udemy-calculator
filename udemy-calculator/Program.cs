@@ -10,7 +10,7 @@ namespace udemy_calculator
             // Ziel: Zwei Gleitkommazahlen addieren
             string strFirstNumber = GetUserInput("Erste Zahl eingeben: ");
             string strSecondNumber = GetUserInput("Zweite Zahl eingeben: ");
-            string strOperator = GetUserInput("Operator (+, -) eingeben: ");
+            string strOperator = GetUserInput("Operator (+, -, /, *) eingeben: ");
 
             // Eingabestring in Zahlen umwandeln
             double firstNumberInput = ConvertNumber(strFirstNumber);
@@ -28,6 +28,16 @@ namespace udemy_calculator
                 case "-":
                     result = SubtractNumbers(firstNumberInput, secondNumberInput);
                     Console.WriteLine("Die Differenz ist: {0:F}", result);
+                    break;
+
+                case "/":
+                    result = DivideNumbers(firstNumberInput, secondNumberInput);
+                    Console.WriteLine("Der Quotiont ist: {0:F}", result);
+                    break;
+
+                case "*":
+                    result = MultiplyNumbers(firstNumberInput, secondNumberInput);
+                    Console.WriteLine("Das Produkt ist: {0:F}", result);
                     break;
 
                 default:
@@ -61,6 +71,26 @@ namespace udemy_calculator
         {
             double difference = minuend - subtrahend;
             return difference;
+        }
+
+        static double DivideNumbers(double dividend, double divisor)
+        {
+            double quotient = 0;
+            if (divisor != 0)
+            {
+                quotient = dividend / divisor;
+            }
+            else
+            {
+                Console.WriteLine("Ungültiger Divisor!");
+            }
+            return quotient;
+        }
+
+        static double MultiplyNumbers(double firstNumber, double secondNumber)
+        {
+            double product = firstNumber * secondNumber;
+            return product;
         }
     }
 }
