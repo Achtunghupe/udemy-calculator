@@ -14,14 +14,26 @@ namespace udemy_calculator
             string strSecondNumber = Console.ReadLine();
 
             // Eingabestring in Zahlen umwandeln
-            double firstNumber = Convert.ToDouble(strFirstNumber);
-            double secondNumber = Convert.ToDouble(strSecondNumber);
+            double firstNumberInput = Convert.ToDouble(strFirstNumber);
+            double secondNumberInput = Convert.ToDouble(strSecondNumber);
 
             // Berechnung und Ausgabe
-            double sum = firstNumber + secondNumber;
+            double sum = AddNumbers(firstNumberInput, secondNumberInput);
             Console.WriteLine("Das Ergebnis ist: {0:F}", sum);
-            Console.ReadLine();
+            WaitEndOfProgram();
 
+        }
+
+        static double AddNumbers(double firstNumber, double secondNumber)
+        {
+            double sum = firstNumber + secondNumber;
+            return sum;
+        }
+
+        static void WaitEndOfProgram()
+        {
+            Console.WriteLine("Zum Beenden bitte die Enter-Taste drücken");
+            Console.ReadLine();
         }
     }
 }
