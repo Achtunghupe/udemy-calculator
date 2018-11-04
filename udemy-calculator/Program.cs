@@ -13,52 +13,74 @@ namespace udemy_calculator
             string strOperator = GetUserInput("Operator (+, -, /, *) eingeben: ");
 
             // Eingabestring in Zahlen umwandeln
-            double firstNumberInput = ConvertNumber(strFirstNumber);
-            double secondNumberInput = ConvertNumber(strSecondNumber);
+            // TODO: Später in eigene Methode auslagern
+            double firstNumberInput = Convert.ToDouble(strFirstNumber);
+            double secondNumberInput = Convert.ToDouble(strSecondNumber);
 
-            // Berechnung und Ausgabe
-            double result = 0;
+            double result = Calculate(firstNumberInput, secondNumberInput, strOperator);
+            GenerateOutput(result, strOperator);
+        }
+
+        static string GetUserInput(string inputText)
+                {
+                    Console.Write(inputText);
+                    string strNumber = Console.ReadLine();
+                    return strNumber;
+                }
+
+        static double Calculate(double firstNumber, double secondNumber, string strOperator)
+        {
+            double result =0;
             switch (strOperator)
             {
                 case "+":
-                    result = AddNumbers(firstNumberInput, secondNumberInput);
+                    result = AddNumbers(firstNumber, secondNumber);
+                    break;
+
+                case "-":
+                    result = SubtractNumbers(firstNumber, secondNumber);
+                    break;
+
+                case "/":
+                    result = DivideNumbers(firstNumber, secondNumber);
+                    break;
+
+                case "*":
+                    result = MultiplyNumbers(firstNumber, secondNumber);
+                    break;
+            }
+            return result;
+        }
+
+        static void GenerateOutput(double result, string strOperator)
+        {
+            switch (strOperator)
+            {
+                case "+":
                     Console.WriteLine("Die Summe ist: {0:F}", result);
                     break;
 
                 case "-":
-                    result = SubtractNumbers(firstNumberInput, secondNumberInput);
                     Console.WriteLine("Die Differenz ist: {0:F}", result);
                     break;
 
                 case "/":
-                    result = DivideNumbers(firstNumberInput, secondNumberInput);
-                    Console.WriteLine("Der Quotiont ist: {0:F}", result);
+                    if (result != 0)
+                    {
+                        Console.WriteLine("Der Quotient ist: {0:F}", result);
+                    }
                     break;
 
                 case "*":
-                    result = MultiplyNumbers(firstNumberInput, secondNumberInput);
                     Console.WriteLine("Das Produkt ist: {0:F}", result);
                     break;
 
                 default:
-                    Console.WriteLine("Ungültiger Operator");
+                    Console.WriteLine("Ungültiger Operator!");
                     break;
             }
 
             GetUserInput("Zum Beenden bitte die Enter-Taste drücken");
-        }
-
-        static string GetUserInput(string inputText)
-        {
-            Console.Write(inputText);
-            string strNumber = Console.ReadLine();
-            return strNumber;
-        }
-
-        static double ConvertNumber (string Number)
-        {
-            double convertedNumber = Convert.ToDouble(Number);
-            return convertedNumber;
         }
 
         static double AddNumbers(double firstNumber, double secondNumber)
