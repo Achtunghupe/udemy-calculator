@@ -19,7 +19,7 @@ namespace udemy_calculator
 
             double result = Calculate(firstNumberInput, secondNumberInput, strOperator);
             GenerateOutput(result, strOperator);
-        }
+        } 
 
         static string GetUserInput(string inputText)
                 {
