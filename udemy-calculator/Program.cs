@@ -107,7 +107,7 @@ namespace udemy_calculator
                 Console.WriteLine("Ungültiger Divisor!");
             }
             return quotient;
-        }
+        } 
 
         static double MultiplyNumbers(double firstNumber, double secondNumber)
         {
